@@ -1,4 +1,4 @@
-# Naboo interview
+_# Naboo interview
 
 ## What's used ?
 
@@ -60,7 +60,7 @@ password: admin1
 - The project uses a mappers which allows from some flexibility in the DB.
 - The use of GraphQL makes typing easier and allows for a more flexible API.
 - The project uses a lot of modern technologies which makes it easy to maintain.
-- 
+
 
 ### Negatives
 - There is some code duplication in the services as well as places where error handling can be improved.
@@ -74,5 +74,4 @@ password: admin1
 ### Overall
 The project is globally well structured and for the current use case is fine. 
 Fixing the tests would be a priority to allow for a refactor of the project down the line.
-```
 
