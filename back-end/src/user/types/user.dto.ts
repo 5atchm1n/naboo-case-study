@@ -13,4 +13,10 @@ export class UserDto {
 
   @Field()
   email!: string;
+
+  @Field((type) => [String])
+  favourites!: string[];
+
+  @Field({ defaultValue: false })
+  isAdmin!: boolean;
 }

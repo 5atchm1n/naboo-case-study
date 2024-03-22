@@ -17,6 +17,16 @@ export class User extends Document {
 
   @Prop()
   token?: string;
+
+  @Prop({
+    type: Array.of(String),
+    ref: 'Activity',
+    default: [],
+  })
+  favourites?: string[];
+
+  @Prop()
+  isAdmin?: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

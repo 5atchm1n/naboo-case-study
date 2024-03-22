@@ -2,13 +2,16 @@ import { PageTitle } from "@/components";
 import { graphqlClient } from "@/graphql/apollo";
 import {
   GetActivityQuery,
-  GetActivityQueryVariables,
+  GetActivityQueryVariables
 } from "@/graphql/generated/types";
 import GetActivity from "@/graphql/queries/activity/getActivity";
 import { Badge, Flex, Grid, Group, Image, Text } from "@mantine/core";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import React from "react";
+import { AddToFavourites } from "@/components/Buttons/AddToFavourites";
+import { CreatedDate } from "@/components/Admin/CreatedDate";
 
 interface ActivityDetailsProps {
   activity: GetActivityQuery["getActivity"];
@@ -28,8 +31,10 @@ export const getServerSideProps: GetServerSideProps<
   return { props: { activity: response.data.getActivity } };
 };
 
+
 export default function ActivityDetails({ activity }: ActivityDetailsProps) {
   const router = useRouter();
+
   return (
     <>
       <Head>
@@ -60,6 +65,8 @@ export default function ActivityDetails({ activity }: ActivityDetailsProps) {
             <Text size="sm" color="dimmed">
               Ajouté par {activity.owner.firstName} {activity.owner.lastName}
             </Text>
+            <CreatedDate date={activity.createdAt} />
+            <AddToFavourites activityId={activity.id} />
           </Flex>
         </Grid.Col>
       </Grid>
